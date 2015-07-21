@@ -34,13 +34,15 @@ Define a time picker method for easy coding
 
 该示例意义：从这个月开始的时刻倒退7天的那个时刻
 
-## 没有分隔符的 timepick ##
+## 没有分隔符的 timepicker ##
 
 * **now** 表示当前
 
 * **all** 表示不受限制的时间
 
 ## 时间倒退值 字段定义 ##
+
+**-x** 表示时间倒退的数值为**x**
 
 **y** 表示时间倒退单位为年
 
@@ -72,25 +74,28 @@ Define a time picker method for easy coding
 
 **s** 表示当前秒的开始时刻
 
-# 时间设置按钮 #
+# 时间段(两个时刻间的时间) 定义 #
 
-添加 **date-earliest** and **date-lastest** 字段
+**date-earliest** 表示开始时间
+**date-lastest** 表示结束结束
 
-其值为 **timepick字段**
+其值均为 **timepicker字段**
 
 *示例*
     
     <a href = "javascript:void(0);" class="timepick" date-earliest = "-2d@now" date-lastest = "now">两天内</a>
 
-`date-earliest = "-7d@d"` 开始时间为 `-7d@d`
+`date-earliest = "-2d@now"` 开始时间为 `2d@now` `当前时刻倒退两天的时刻`
 
-`date-lastest = "now"` 结束时间为 `now`
+`date-lastest = "now"` 结束时间为 `now` `当前时刻`
+
+所以该示例的含义为 `两天内`
 
 # 优点 #
 
 * 参考了 **splunk** 的方式
 
-* 配置文件的引入，以及用户自定义时间选择器
+* **HTML**可通过配置文件生成，以及用户自定义时间选择器
 
 * 简化了 **HTML** 和 **JS** 代码的编写
 
