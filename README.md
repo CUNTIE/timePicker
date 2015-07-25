@@ -74,16 +74,27 @@ Define a time picker method for easy coding
 
 **s** 表示当前秒的开始时刻
 
-# 时间段(两个时刻间的时间) 定义 #
+## 返回值 ##
+
+* `all` 返回 `-1`
+
+* `[@]now` 返回 `当前UTC毫秒数`
+
+* 其他语法 返回过去该时刻的 `UTC毫秒数`
+
+---
+
+# 时间段(两个时刻间) 定义 #
 
 **date-earliest** 表示开始时间
+
 **date-lastest** 表示结束结束
 
 其值均为 **timepicker字段**
 
 *示例*
     
-    <a href = "javascript:void(0);" class="timepick" date-earliest = "-2d@now" date-lastest = "now">两天内</a>
+    <a href="#" class="timepick" date-earliest="-2d@now" date-lastest="now">两天内</a>
 
 `date-earliest = "-2d@now"` 开始时间为 `2d@now` `当前时刻倒退两天的时刻`
 
@@ -93,7 +104,7 @@ Define a time picker method for easy coding
 
 # 优点 #
 
-* 参考了 **splunk** 的方式
+* 参考了 [**splunk**][splunktiem] 的方式
 
 * **HTML**可通过配置文件生成，以及用户自定义时间选择器
 
@@ -101,15 +112,17 @@ Define a time picker method for easy coding
 
 # 前端处理方法 #
 
-    编写HTML代码和用户规则的时候，必须实现严格的 timepick 语法，（将会为"用户自定义规则"提供规则检测器）
+    编写HTML代码，必须实现严格的 timepick 语法
 
 * **兼容所有严格的 timepick 语法**
 
 * **对不严格语法尽可能处理**
 
 
-## 处理逻辑 ##
-
 ## 兼容列表 ##
 
 * 对于输入 `" "`（空格） 和 `""`(空) 返回当前时间
+
+
+
+[splunktiem]: http://docs.splunk.com/Documentation/Splunk/6.2.4/Search/Specifytimemodifiersinyoursearch

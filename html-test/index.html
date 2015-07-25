@@ -1,9 +1,96 @@
 <!DOCTYPE html>
 <hmtl>
-	<head>
-		<title>Test TimePicker</title>
-	</head>
-	<body>
-		<a herf="#" class='timepicker'> Hello World </a>
-	</body>
+<head>
+	<title>Test TimePicker</title>
+	<style type="text/css">
+	a{
+		display: block;
+		margin: 10px 5px;
+	}
+	</style>
+</head>
+<body>
+	<h1>Test TimePicker</h1>
+	<div id="presettimescopeblock" class="presetblock">
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1m@now" date-lastest = "now">A Minute Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1h@now" date-lastest = "now">A Hour Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@now" date-lastest = "now">A Day Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1w@now" date-lastest = "now">A Week Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1mon@now" date-lastest = "now">A Month Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1y@now" date-lastest = "now">A Year Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "@d" date-lastest = "now">Today</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@d" date-lastest = "@d">Yesterday</a>
+	</div>
+	<h3>Click and see test result on console</h3>
+</body>
+
+	<script src="../src/timePicker.js"></script>
+	<script>
+	document.getElementByClass = function (classname) {
+		var elements = [];
+		var alltags = document.all ? document.all : document.getElementsByTagName('*')
+		for (var i=0; i<alltags.length; i++) { 
+			var classNames = '' + alltags[i].className + '';
+			if (classNames.indexOf('' + classname + '') >= 0){
+			 	elements[elements.length] = alltags[i];
+			}
+		}
+		return elements;
+	}
+
+	document.addEvent = function(el, e, callback, capture)
+    {
+    	var hasEventListeners = !!window.addEventListener;
+        if (hasEventListeners) {
+            el.addEventListener(e, callback, !!capture);
+        } else {
+            el.attachEvent('on' + e, callback);
+        }
+    }
+
+	document.removeEvent = function(el, e, callback, capture)
+    {
+    	var hasEventListeners = !!window.addEventListener;
+        if (hasEventListeners) {
+            el.removeEventListener(e, callback, !!capture);
+        } else {
+            el.detachEvent('on' + e, callback);
+        }
+    }
+
+	document.fireEvent = function(el, eventName, data)
+    {
+        var ev;
+
+        if (document.createEvent) {
+            ev = document.createEvent('HTMLEvents');
+            ev.initEvent(eventName, true, false);
+            ev = extend(ev, data);
+            el.dispatchEvent(ev);
+        } else if (document.createEventObject) {
+            ev = document.createEventObject();
+            ev = extend(ev, data);
+            el.fireEvent('on' + eventName, ev);
+        }
+    }
+
+	document.getElementByClass('timepicker').forEach(function(ele){
+		document.addEvent(ele, 'mousedown', linkclick, false)
+	});
+
+	function linkclick(){
+	  var dateEarliest =  this.outerHTML.replace(/[\s\t\n\t\r]/g, '').replace(/^[\w\W]*date\-earliest=\"/, '').replace(/\"[\w\W]*$/, '');
+      var datelatest =  this.outerHTML.replace(/[\s\t\n\t\r]/g, '').replace(/^[\w\W]*date\-lastest=\"/, '').replace(/\"[\w\W]*$/, '');
+      var dateEarliestTimeStamp = exports.timePicker.getTimeStamp(dateEarliest);
+      var dateLatestTimeStamp = exports.timePicker.getTimeStamp(datelatest);
+
+      console.log('timepicker:', dateEarliest, datelatest);
+      console.log('dateEarliest:', dateEarliestTimeStamp);
+      console.log(new Date(dateEarliestTimeStamp));
+      console.log('datelatest:', dateLatestTimeStamp);
+      console.log(new Date(dateLatestTimeStamp));
+	}
+
+</script>
+
 </html>

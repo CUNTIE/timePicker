@@ -26,8 +26,7 @@ var timePicker = timePicker || {};
       timeBackUnit = timeRuleStr.split(SEPARATOR)[0].replace(/^\-?\d+/, '');
       timeStoneUnit = timeRuleStr.split(SEPARATOR)[1];
     }
-    console.log(timeRuleStr, timeBackNum, timeBackUnit, timeStoneUnit);
-
+    
     if('all' === timeStoneUnit){
       return defaultTimeStamp;
     }
