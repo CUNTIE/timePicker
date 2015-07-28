@@ -1,4 +1,4 @@
-# timePicker #
+# [timePicker](http://cntchen.github.io/timePicker) #
 Define a time picker method for easy coding
 
 ## 背景 ##
