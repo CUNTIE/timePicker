@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<hmtl>
+<html>
 <head>
 	<title>Test TimePicker</title>
 	<style type="text/css">
@@ -12,14 +12,14 @@
 <body>
 	<h1>Test TimePicker</h1>
 	<div id="presettimescopeblock" class="presetblock">
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1m@now" date-lastest = "now">A Minute Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1h@now" date-lastest = "now">A Hour Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@now" date-lastest = "now">A Day Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1w@now" date-lastest = "now">A Week Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1mon@now" date-lastest = "now">A Month Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1y@now" date-lastest = "now">A Year Ago</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "@d" date-lastest = "now">Today</a>
-		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@d" date-lastest = "@d">Yesterday</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1m@now" date-latest = "now">A Minute Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1h@now" date-latest = "now">A Hour Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@now" date-latest = "now">A Day Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1w@now" date-latest = "now">A Week Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1mon@now" date-latest = "now">A Month Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1y@now" date-latest = "now">A Year Ago</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "@d" date-latest = "now">Today</a>
+		<a href = "#" class="timepicker internetionallanguage" date-earliest = "-1d@d" date-latest = "@d">Yesterday</a>
 	</div>
 	<h3>Click and see test result on console</h3>
 </body>
@@ -80,7 +80,7 @@
 
 	function linkclick(){
 	  var dateEarliest =  this.outerHTML.replace(/[\s\t\n\t\r]/g, '').replace(/^[\w\W]*date\-earliest=\"/, '').replace(/\"[\w\W]*$/, '');
-      var datelatest =  this.outerHTML.replace(/[\s\t\n\t\r]/g, '').replace(/^[\w\W]*date\-lastest=\"/, '').replace(/\"[\w\W]*$/, '');
+      var datelatest =  this.outerHTML.replace(/[\s\t\n\t\r]/g, '').replace(/^[\w\W]*date\-latest=\"/, '').replace(/\"[\w\W]*$/, '');
       var dateEarliestTimeStamp = exports.timePicker.getTimeStamp(dateEarliest);
       var dateLatestTimeStamp = exports.timePicker.getTimeStamp(datelatest);
 

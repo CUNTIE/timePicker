@@ -88,17 +88,17 @@ Define a time picker method for easy coding
 
 **date-earliest** 表示开始时间
 
-**date-lastest** 表示结束结束
+**date-latest** 表示结束结束
 
 其值均为 **timepicker字段**
 
 *示例*
     
-    <a href="#" class="timepick" date-earliest="-2d@now" date-lastest="now">两天内</a>
+    <a href="#" class="timepick" date-earliest="-2d@now" date-latest="now">两天内</a>
 
 `date-earliest = "-2d@now"` 开始时间为 `2d@now` `当前时刻倒退两天的时刻`
 
-`date-lastest = "now"` 结束时间为 `now` `当前时刻`
+`date-latest = "now"` 结束时间为 `now` `当前时刻`
 
 所以该示例的含义为 `两天内`
 
